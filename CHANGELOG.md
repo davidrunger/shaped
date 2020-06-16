@@ -4,6 +4,7 @@
 - Add `Array` refinement
 - Add `Shaped::MatchFailureReason` and `Shaped::Array#match_failure_reason`
 - Add `Shaped::Hash` method and class
+- Add `Hash` refinement
 
 ### Fixed
 - Fix potential memory leak in long-lived `Shaped::Array` instances
