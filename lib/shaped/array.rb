@@ -22,7 +22,7 @@ class Shaped::Array < Shaped::Shape
     @match_failure_reasons = {}
   end
 
-  def descriptor
+  def to_s
     "Array shaped like [#{@shape_klass}]"
   end
 

@@ -15,7 +15,7 @@ class Shaped::Hash < Shaped::Shape
     @match_failure_reasons = {}
   end
 
-  def descriptor
+  def to_s
     printable_shape_description =
       @shape_description.map do |key, value|
         "#{key.inspect} => #{expected_class_descriptor(value)}"

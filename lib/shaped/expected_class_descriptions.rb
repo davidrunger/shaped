@@ -5,7 +5,7 @@ module Shaped::ExpectedClassDescriptions
 
   def expected_class_descriptor(expected_klass)
     if expected_klass.is_a?(Shaped::Shape)
-      expected_klass.descriptor
+      expected_klass.to_s
     else
       expected_klass.name
     end
