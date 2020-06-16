@@ -31,29 +31,4 @@ RSpec.describe Shaped::Refinements::Array do
       end
     end
   end
-
-  describe '#match_failure_reason' do
-    subject(:match_failure_reason) { shaped_array.match_failure_reason(test_array) }
-
-    context 'when the test array matches the shape description' do
-      before { expect(shaped_array).to be_matched_by(test_array) }
-
-      it 'returns nil' do
-        expect(match_failure_reason).to eq(nil)
-      end
-    end
-
-    context 'when the test array does not match the shape description' do
-      before { expect(shaped_array).not_to be_matched_by(test_array) }
-
-      let(:test_array) { [1, 2.0, 'not a number!', Rational(3, 4)] }
-
-      it 'returns a Shaped::MatchFailureReason instance with the correct info' do
-        expect(match_failure_reason).to be_a(Shaped::MatchFailureReason)
-        expect(match_failure_reason.to_s).to eq(
-          'Object at `2` is expected to be a Numeric but was a String',
-        )
-      end
-    end
-  end
 end
