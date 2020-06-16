@@ -3,6 +3,8 @@
 module Shaped ; end
 module Shaped::Refinements ; end
 
+require_relative './shaped/shape.rb'
+require_relative './shaped/expectation_checking.rb'
 Dir[File.dirname(__FILE__) + '/**/*.rb'].sort.each { |file| require file }
 
 module Shaped

@@ -5,6 +5,7 @@
 - Add `Shaped::MatchFailureReason` and `Shaped::Array#match_failure_reason`
 - Add `Shaped::Hash` method and class
 - Add `Hash` refinement
+- Allow composing Hash and Array shape matchers together
 
 ### Fixed
 - Fix potential memory leak in long-lived `Shaped::Array` instances
