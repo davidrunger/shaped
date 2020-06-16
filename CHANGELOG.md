@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.0 - 2020-06-16
 ### Added
 - Add `Shaped::Array` method and class
 - Add `Array` refinement
