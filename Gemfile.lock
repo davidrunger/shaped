@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    shaped (0.2.0)
+    shaped (0.2.1)
 
 GEM
   remote: https://rubygems.org/

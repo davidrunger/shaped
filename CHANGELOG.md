@@ -1,4 +1,4 @@
-## Unreleased
+## 0.2.1 - 2020-06-16
 ### Changed
 - Rename `Shaped::Array#descriptor` and `Shaped::Hash#descriptor` methods to `#to_s`
 
