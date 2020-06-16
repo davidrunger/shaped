@@ -4,8 +4,8 @@ RSpec.describe Shaped::MatchFailureReason do
   subject(:match_failure_reason) do
     Shaped::MatchFailureReason.new(
       path: [2],
-      expected: Integer,
-      actual: String,
+      expected_klass: Integer,
+      actual_value: 'a string',
     )
   end
 

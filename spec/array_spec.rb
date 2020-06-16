@@ -21,7 +21,8 @@ RSpec.describe Shaped::Array do
       it 'raises an error' do
         expect { shaped_array }.to raise_error(
           Shaped::InvalidShapeDescription,
-          'The element of a Shaped::Array description must be a class (ex: `[String]`).',
+          'The element of a Shaped::Array description must be a class (ex: `[String]`) ' \
+          'or a Shaped::Shape (ex.: `[Shaped::Hash(email: String)]`).',
         )
       end
     end
