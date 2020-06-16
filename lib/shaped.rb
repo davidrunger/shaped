@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Shaped ; end
+module Shaped::Refinements ; end
 
 Dir[File.dirname(__FILE__) + '/**/*.rb'].sort.each { |file| require file }
 
