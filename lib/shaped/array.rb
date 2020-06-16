@@ -19,6 +19,12 @@ class Shaped::Array
   end
 
   def matched_by?(array)
+    # avoid a memory leak from indefinitely adding to the @match_failure_reasons hash; we just want
+    # to use it to memoize recently checked arrays (we'll somewhat arbitrarily go with 10 of them)
+    if @match_failure_reasons.size > 10
+      @match_failure_reasons = {}
+    end
+
     if array.empty?
       Shaped.lax_mode?
     elsif @match_failure_reasons.key?(array)
