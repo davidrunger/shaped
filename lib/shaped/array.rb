@@ -15,13 +15,38 @@ class Shaped::Array
     end
 
     @shape_klass = shape_description.first
+    @match_failure_reasons = {}
   end
 
   def matched_by?(array)
     if array.empty?
       Shaped.lax_mode?
+    elsif @match_failure_reasons.key?(array)
+      @match_failure_reasons[array].nil?
     else
-      array.all? { _1.is_a?(@shape_klass) }
+      all_elements_match = true
+      array.each_with_index do |element, index|
+        next if element.is_a?(@shape_klass)
+
+        all_elements_match = false
+        @match_failure_reasons[array] =
+          Shaped::MatchFailureReason.new(
+            path: [index],
+            expected: @shape_klass,
+            actual: element.class,
+          )
+        break
+      end
+      @match_failure_reasons[array] = nil if all_elements_match
+      all_elements_match
+    end
+  end
+
+  def match_failure_reason(array)
+    if matched_by?(array)
+      nil
+    else
+      @match_failure_reasons[array]
     end
   end
 end
