@@ -3,6 +3,7 @@
 - Add `Shaped::Array` method and class
 - Add `Array` refinement
 - Add `Shaped::MatchFailureReason` and `Shaped::Array#match_failure_reason`
+- Add `Shaped::Hash` method and class
 
 ### Fixed
 - Fix potential memory leak in long-lived `Shaped::Array` instances

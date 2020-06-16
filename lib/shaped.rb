@@ -10,6 +10,10 @@ module Shaped
   def self.Array(shape_description)
     Shaped::Array.new(shape_description)
   end
+
+  def self.Hash(shape_description)
+    Shaped::Hash.new(shape_description)
+  end
   # rubocop:enable  Naming/MethodName
 
   def self.lax_mode(&blk)
