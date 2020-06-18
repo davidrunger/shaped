@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/davidrunger/shaped/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
+
 # Shaped
 
 Validate the shape of Ruby hashes and/or arrays.
