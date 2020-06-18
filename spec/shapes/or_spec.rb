@@ -7,8 +7,22 @@ RSpec.describe Shaped::Shapes::Or do
   let(:test_object) { 'David Runger' }
 
   describe '#initialize' do
-    it 'does not raise an error' do
-      expect { or_shape }.not_to raise_error
+    context 'when initialized with a list of multiple classes' do
+      let(:or_shape_descriptions) { [Numeric, String] }
+
+      it 'does not raise an error' do
+        expect { or_shape }.not_to raise_error
+      end
+    end
+
+    context 'when initialized with a single argument' do
+      let(:or_shape_descriptions) { [Numeric] }
+
+      it 'raises an error' do
+        expect { or_shape }.to raise_error(Shaped::InvalidShapeDescription, <<~ERROR.squish)
+          A Shaped::Shapes::Or description must be a list of two or more shape descriptions.
+        ERROR
+      end
     end
   end
 

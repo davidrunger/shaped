@@ -30,6 +30,16 @@ RSpec.describe Shaped::Shapes::Array do
         expect { array_shape }.not_to raise_error
       end
     end
+
+    context 'when the shape description is not an array' do
+      let(:array_shape_description) { Numeric }
+
+      it 'raises an error' do
+        expect { array_shape }.to raise_error(Shaped::InvalidShapeDescription, <<~ERROR.squish)
+          A Shaped::Shapes::Array description must be an array.
+        ERROR
+      end
+    end
   end
 
   describe '#matched_by?' do
