@@ -1,3 +1,7 @@
+## Unreleased
+### Maintenance
+- Added test coverage tracking via `simplecov` and `codecov`
+
 ## 0.3.0 - 2020-06-18
 ### Breaking changes
 - Major refactor! See details below.
