@@ -1,3 +1,57 @@
+## Unreleased (0.3.0.alpha)
+### Breaking changes
+- Major refactor! See details below.
+
+### Removed
+- Remove detailed descriptions of errors ("match failure reasons")
+- Remove `Array` and `Hash` refinements (`#has_shape?`)
+- Removed `Shaped::Array(...)` and `Shaped::Hash(...)` constructor methods. Now, all shapes are
+  created via a single, unified `Shaped::Shape(...)` method that determines which type of shape to
+  build based on the class of the argument.
+- Removed `Shaped.lax_mode` and `Shaped.strict_mode` settings. What was previously called `lax_mode`
+  is now the default, meaning that an empty array will always be considered to match any
+  `Shaped::Shapes::Array`.
+
+### Added
+- Added new shape/matcher types (plus preexisting but relocated `Shaped::Shapes::Array` and
+  `Shaped::Shapes::Hash`):
+  1. `Shaped::Shapes::Class`
+  2. `Shaped::Shapes::Equality`
+  3. `Shaped::Shapes::Or`
+- All hashes and arrays in shape definitions are parsed "recursively" as shape definitions. For
+  example, instead of:
+
+```rb
+Shaped::Array([
+  Shaped::Hash(
+    name: String,
+    emails: Shaped::Hash(
+      personal: Shaped::Array([String]),
+      work: Shaped::Array([String]),
+    ),
+    favorite_numbers: Shaped::Array([Numeric]),
+  ),
+])
+```
+
+...one can now simply do:
+
+```rb
+Shaped::Array([
+  {
+    name: String,
+    emails: {
+      personal: [String],
+      work: [String],
+    },
+    favorite_numbers: [Numeric],
+  }
+])
+```
+
+### Dependencies
+- Added `activesupport` as a dependency
+
 ## 0.2.1 - 2020-06-16
 ### Changed
 - Rename `Shaped::Array#descriptor` and `Shaped::Hash#descriptor` methods to `#to_s`

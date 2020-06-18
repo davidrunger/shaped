@@ -1,13 +1,10 @@
 # frozen_string_literal: true
 
 RSpec.describe 'everything working together' do
-  using Shaped::Refinements::Array
-  using Shaped::Refinements::Hash
-
   describe 'when composing Hash matchers inside of an Array matcher' do
-    subject(:has_shape?) { test_array.has_shape?(shaped_array) }
+    subject(:matched_by?) { array_shape.matched_by?(test_array) }
 
-    let(:shaped_array) { Shaped::Array([Shaped::Hash(email: String)]) }
+    let(:array_shape) { Shaped::Shape([{ email: String }]) }
 
     context 'when the test array matches the pattern' do
       let(:test_array) do
@@ -18,7 +15,7 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test array matches the shape' do
-        expect(has_shape?).to eq(true)
+        expect(matched_by?).to eq(true)
       end
     end
 
@@ -32,24 +29,18 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test array does not match the shape' do
-        expect(has_shape?).to eq(false)
-      end
-
-      it 'accurately indicates the first point of failure in the shape matching' do
-        expect(shaped_array.match_failure_reason(test_array).to_s).to eq(
-          'Object at `2.email` is expected to be a String but was a Float',
-        )
+        expect(matched_by?).to eq(false)
       end
     end
   end
 
   describe 'when composing Array matchers inside of a Hash matcher' do
-    subject(:has_shape?) { test_hash.has_shape?(shaped_hash) }
+    subject(:matched_by?) { hash_shape.matched_by?(test_hash) }
 
-    let(:shaped_hash) do
-      Shaped::Hash(
-        array_of_numerics: Shaped::Array([Numeric]),
-        array_of_strings: Shaped::Array([String]),
+    let(:hash_shape) do
+      Shaped::Shape(
+        array_of_numerics: [Numeric],
+        array_of_strings: [String],
       )
     end
 
@@ -62,7 +53,7 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test hash matches the shape' do
-        expect(has_shape?).to eq(true)
+        expect(matched_by?).to eq(true)
       end
     end
 
@@ -75,30 +66,24 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test hash does not match the shape' do
-        expect(has_shape?).to eq(false)
-      end
-
-      it 'accurately indicates the first point of failure in the shape matching' do
-        expect(shaped_hash.match_failure_reason(test_hash).to_s).to eq(
-          'Object at `array_of_strings.0` is expected to be a String but was a Integer',
-        )
+        expect(matched_by?).to eq(false)
       end
     end
   end
 
   describe 'when deeply composing Array and Hash matchers' do
-    subject(:has_shape?) { test_array.has_shape?(shaped_array) }
+    subject(:matched_by?) { array_shape.matched_by?(test_array) }
 
-    let(:shaped_array) do
-      Shaped::Array([
-        Shaped::Hash(
+    let(:array_shape) do
+      Shaped::Shape([
+        {
           name: String,
-          emails: Shaped::Hash(
-            personal: Shaped::Array([String]),
-            work: Shaped::Array([String]),
-          ),
-          favorite_numbers: Shaped::Array([Numeric]),
-        ),
+          emails: {
+            personal: [String],
+            work: [String],
+          },
+          favorite_numbers: [Numeric],
+        },
       ])
     end
 
@@ -125,7 +110,7 @@ RSpec.describe 'everything working together' do
 
     context 'when the test array matches the pattern' do
       it 'indicates that the test array matches the shape' do
-        expect(has_shape?).to eq(true)
+        expect(matched_by?).to eq(true)
       end
     end
 
@@ -144,14 +129,7 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test array does not match the shape' do
-        expect(has_shape?).to eq(false)
-      end
-
-      it 'accurately indicates the first point of failure in the shape matching' do
-        expect(shaped_array.match_failure_reason(test_array).to_s).to eq(
-          'Object at `2.emails.work` is expected to be a Array shaped like [String] ' \
-          'but was a NilClass',
-        )
+        expect(matched_by?).to eq(false)
       end
     end
 
@@ -168,15 +146,7 @@ RSpec.describe 'everything working together' do
       end
 
       it 'indicates that the test array does not match the shape' do
-        expect(has_shape?).to eq(false)
-      end
-
-      it 'accurately indicates the first point of failure in the shape matching' do
-        expect(shaped_array.match_failure_reason(test_array).to_s).to eq(
-          'Object at `2.emails` is expected to be a Hash shaped like ' \
-          '{ :personal => Array shaped like [String], :work => Array shaped like [String] } ' \
-          'but was a Array',
-        )
+        expect(matched_by?).to eq(false)
       end
     end
   end
