@@ -1,4 +1,4 @@
-## Unreleased
+## v0.3.2 (2020-06-18)
 ### Tests
 - Add tests for invalid `Array` and `Or` shape definitions
 
