@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    shaped (0.3.0)
+    shaped (0.3.1)
       activesupport (~> 6.0)
 
 GEM
