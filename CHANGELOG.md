@@ -1,4 +1,4 @@
-## Unreleased (0.3.0.alpha)
+## 0.3.0 - 2020-06-18
 ### Breaking changes
 - Major refactor! See details below.
 
