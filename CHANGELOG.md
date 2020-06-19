@@ -1,4 +1,4 @@
-## Unreleased (0.4.0.alpha)
+## v0.4.0 (2020-06-18)
 ### Added
 - Add the ability to specify ActiveModel-style validations for `Shaped::Shape::Class`es
 
