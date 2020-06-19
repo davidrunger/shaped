@@ -1,4 +1,4 @@
-## Unreleased (v0.5.1.alpha)
+## v0.5.1 (2020-06-19)
 ### Docs
 - Update description(s) to reflect broadened scope of the gem
 
