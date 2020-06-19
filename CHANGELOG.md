@@ -1,4 +1,4 @@
-## Unreleased (0.5.0.alpha)
+## v0.5.0 (2020-06-19)
 ### Added
 - Add a `Shaped::Shapes::Callable` shape, which is a shape that is defined by any object that
   responds to `#call` (e.g. a proc or an instance of a class that defines a `#call` instance
