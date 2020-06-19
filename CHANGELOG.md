@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.4 (2020-06-19)
 ### Specs
 - Fix typo in test (`@number.event?` => `@number.even?`)
 
