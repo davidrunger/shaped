@@ -93,7 +93,7 @@ RSpec.describe Shaped::Shapes::Array do
       subject(:array_shape) { Shaped::Shapes::Array.new([String, Numeric]) }
 
       it 'returns a readably formatted description of the expected array shape' do
-        expect(to_s).to eq('[String, Numeric]')
+        expect(to_s).to eq('[String OR Numeric]')
       end
     end
 
@@ -101,7 +101,7 @@ RSpec.describe Shaped::Shapes::Array do
       subject(:array_shape) { Shaped::Shapes::Array.new(%w[two four six]) }
 
       it 'returns a readably formatted description of the allowed object values' do
-        expect(to_s).to eq('["two", "four", "six"]')
+        expect(to_s).to eq('["two" OR "four" OR "six"]')
       end
     end
   end

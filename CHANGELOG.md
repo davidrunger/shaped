@@ -1,3 +1,7 @@
+## Unreleased (0.4.0.alpha)
+### Added
+- Add the ability to specify ActiveModel-style validations for `Shaped::Shape::Class`es
+
 ## v0.3.2 (2020-06-18)
 ### Tests
 - Add tests for invalid `Array` and `Or` shape definitions
