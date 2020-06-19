@@ -64,7 +64,7 @@ RSpec.describe Shaped::Shapes::Callable do
             private
 
             def number_is_even?
-              @number.event?
+              @number.even?
             end
           end,
         )
