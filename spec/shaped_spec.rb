@@ -33,6 +33,14 @@ RSpec.describe(Shaped) do
         end
       end
 
+      context 'when called with an object that responds to #call (e.g. a Proc)' do
+        let(:shape_description) { ->(object) { object.even? } }
+
+        it 'returns an instance of Shaped::Shapes::Callable' do
+          expect(shape).to be_a(Shaped::Shapes::Callable)
+        end
+      end
+
       context 'when called with an Integer' do
         let(:shape_description) { 2 }
 

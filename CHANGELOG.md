@@ -1,3 +1,10 @@
+## Unreleased (0.5.0.alpha)
+### Added
+- Add a `Shaped::Shapes::Callable` shape, which is a shape that is defined by any object that
+  responds to `#call` (e.g. a proc or an instance of a class that defines a `#call` instance
+  method). This allows for essentially total flexibility in defining/describing the "shape" of an
+  object.
+
 ## v0.4.0 (2020-06-18)
 ### Added
 - Add the ability to specify ActiveModel-style validations for `Shaped::Shape::Class`es
