@@ -2,7 +2,7 @@
 
 # Shaped
 
-Validate the shape of Ruby hashes and/or arrays.
+Validate the "shape" of Ruby objects.
 
 ## Installation
 
