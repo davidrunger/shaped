@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.3 (2020-06-19)
 ### Docs
 - Fill out the "Usage" section of README.md
 
