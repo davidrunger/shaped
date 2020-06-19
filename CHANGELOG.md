@@ -1,3 +1,7 @@
+## Unreleased (v0.5.1.alpha)
+### Docs
+- Update description(s) to reflect broadened scope of the gem
+
 ## v0.5.0 (2020-06-19)
 ### Added
 - Add a `Shaped::Shapes::Callable` shape, which is a shape that is defined by any object that

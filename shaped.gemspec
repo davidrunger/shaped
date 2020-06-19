@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['David Runger']
   spec.email         = ['davidjrunger@gmail.com']
 
-  spec.summary       = 'Validate the shape of Ruby hashes and/or arrays.'
-  spec.description   = 'Validate the shape of Ruby hashes and/or arrays.'
+  spec.summary       = 'Validate the "shape" of Ruby objects.'
+  spec.description   = 'Validate the "shape" of Ruby objects.'
   spec.homepage      = 'https://github.com/davidrunger/shaped'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
