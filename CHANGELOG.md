@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.2 (2020-06-19)
 ### Docs
 - Don't say in installation instructions to list gem in test section of Gemfile.
 
