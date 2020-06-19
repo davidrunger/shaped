@@ -6,8 +6,8 @@ Validate the "shape" of Ruby objects.
 
 ## Installation
 
-Add the gem to the `test` group of your application's `Gemfile`. Because the gem is not released via
-RubyGems, you will need to install it from GitHub.
+Add the gem to your application's `Gemfile`. Because the gem is not released via RubyGems, you will
+need to install it from GitHub.
 
 ```ruby
 gem 'shaped', git: 'https://github.com/davidrunger/shaped.git'
