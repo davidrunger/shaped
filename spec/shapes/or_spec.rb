@@ -15,6 +15,42 @@ RSpec.describe Shaped::Shapes::Or do
       end
     end
 
+    context 'when initialized with a list of multiple array descriptions' do
+      let(:or_shape_descriptions) { [[Numeric], [String]] }
+
+      it 'does not raise an error' do
+        expect { or_shape }.not_to raise_error
+      end
+
+      describe '#matched_by?' do
+        subject(:matched_by?) { or_shape.matched_by?(test_object) }
+
+        context 'when the test object is an array of only Numerics' do
+          let(:test_object) { [1, 2.0, Rational(3, 4)] }
+
+          it 'returns true' do
+            expect(matched_by?).to eq(true)
+          end
+        end
+
+        context 'when the test object is an array of only Strings' do
+          let(:test_object) { ['one', 'two point zero', 'three fourths'] }
+
+          it 'returns true' do
+            expect(matched_by?).to eq(true)
+          end
+        end
+
+        context 'when the test object is an array that mixes Numerics and Strings' do
+          let(:test_object) { [1.0, 'two point zero', 0.75] }
+
+          it 'returns false' do
+            expect(matched_by?).to eq(false)
+          end
+        end
+      end
+    end
+
     context 'when initialized with a single argument' do
       let(:or_shape_descriptions) { [Numeric] }
 
@@ -56,7 +92,7 @@ RSpec.describe Shaped::Shapes::Or do
     subject(:to_s) { or_shape.to_s }
 
     it 'returns a readably formatted description of the list of allowed shapes' do
-      expect(to_s).to eq('Numeric, String')
+      expect(to_s).to eq('Numeric OR String')
     end
   end
 end
