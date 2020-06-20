@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.7 (2020-06-19)
 ### Docs
 - Wrap lines in README.md to a max of 100 characters
 
