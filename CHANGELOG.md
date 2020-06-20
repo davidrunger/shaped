@@ -1,3 +1,8 @@
+## Unreleased (v0.6.0.alpha)
+### Fixed
+- Fix bug that would occur in the `Shaped::Shape(...)` constructor when provided with a falsy first
+  argument.
+
 ## v0.5.8 (2020-06-19)
 ### Docs
 - Document ActiveModel-style validations (which are available for `Shaped::Shapes::Class`)
