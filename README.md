@@ -31,9 +31,11 @@ Validate the "shape" of Ruby objects!
 
 # Context
 
-The primary purpose of this gem, for now, is to serve as a dependency for the [`active_actions`](https://github.com/davidrunger/active_actions/) gem.
+The primary purpose of this gem, for now, is to serve as a dependency for the
+[`active_actions`](https://github.com/davidrunger/active_actions/) gem.
 
-The gem probably has other potential uses, too (for example, a `have_shape` RSpec matcher might be useful), but for now supporting `active_actions` is `shaped`'s *raison d'être*.
+The gem probably has other potential uses, too (for example, a `have_shape` RSpec matcher might be
+useful), but for now supporting `active_actions` is `shaped`'s *raison d'être*.
 
 # Installation
 
@@ -50,7 +52,8 @@ And then execute:
 $ bundle install
 ```
 
-If you want to install the gem on your system independent of a project with a `Gemfile`, then you can easily do so via [`specific_install`](https://github.com/rdp/specific_install):
+If you want to install the gem on your system independent of a project with a `Gemfile`, then you
+can easily do so via [`specific_install`](https://github.com/rdp/specific_install):
 
 ```
 $ gem install specific_install
@@ -59,7 +62,8 @@ $ gem specific_install davidrunger/shaped
 
 # Usage
 
-The core concept of `shaped` is a "shape", by which we means "an object that describes some characteristic(s) that we want to be able to test other objects against".
+The core concept of `shaped` is a "shape", by which we mean "an object that describes some
+characteristic(s) that we want to be able to test other objects against".
 
 Here's an example:
 ```rb
@@ -77,7 +81,9 @@ shape.matched_by?({ email: 'dhh@hey.com', age: 44.4 }) # `age` is a Float, not I
 
 ## Shape types
 
-That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s six shape types (all of which inherit from `Shaped::Shape`):
+That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s six shape
+types (all of which inherit from `Shaped::Shape`):
+
 1. `Shaped::Shapes::Hash`
 1. `Shaped::Shapes::Array`
 1. `Shaped::Shapes::Class`
@@ -89,7 +95,9 @@ Examples illustrating the use of each shape type are below.
 
 ## `Shaped::Shape(...)` constructor method
 
-In the example above, we built an instance of `Shaped::Shapes::Hash` by calling `Shaped::Shapes::Hash.new(...)`, but usually an easier/better way to build a shape object is using the `Shaped::Shape` constructor method.
+In the example above, we built an instance of `Shaped::Shapes::Hash` by calling
+`Shaped::Shapes::Hash.new(...)`, but usually an easier/better way to build a shape object is using
+the `Shaped::Shape` constructor method.
 
 ```rb
 # functionally equivalent to `Shaped::Shapes::Hash.new({ email: String, age: Integer })`
@@ -99,7 +107,11 @@ shape.class
 shape.matched_by?(email: 'hello@example.com', age: 22)
 # => true
 ```
-The `Shaped::Shape` constructor method will automatically build the appropriate type of shape object (one of the six types listed above), depending on the arguments provided. In this example, because the argument to `Shaped::Shape` was a `Hash`, the `Shaped::Shape` constructor method built and returned an instance of `Shaped::Shapes::Hash`.
+
+The `Shaped::Shape` constructor method will automatically build the appropriate type of shape object
+(one of the six types listed above), depending on the arguments provided. In this example, because
+the argument to `Shaped::Shape` was a `Hash`, the `Shaped::Shape` constructor method built and
+returned an instance of `Shaped::Shapes::Hash`.
 
 ## Shaped::Shapes::Hash
 
@@ -140,7 +152,8 @@ shape.matched_by?([3.6, 10, 27, 81.99]) # all elements are either an Integer or 
 
 ## Shaped::Shapes::Class
 
-This shape is straightforward; it tests that the provided object is an instance of the specified class (checked via `is_a?(...)`).
+This shape is straightforward; it tests that the provided object is an instance of the specified
+class (checked via `is_a?(...)`).
 
 ```rb
 shape = Shaped::Shape(Numeric)
@@ -157,7 +170,10 @@ shape.matched_by?('five') # 'five' is not a Numeric
 
 ## Shaped::Shapes::Callable
 
-This shape is very powerful if you need a very customized shape definition; you can define any number of conditions/checks and they can be defined however you like. The only condition is that the "shape definition" provided to the `Shaped::Shape(...)` constructor method must have a `#call` instance method. For example, all Ruby procs/lambdas  have a `#call` instance method.
+This shape is very powerful if you need a very customized shape definition; you can define any
+number of conditions/checks and they can be defined however you like. The only condition is that the
+"shape definition" provided to the `Shaped::Shape(...)` constructor method must have a `#call`
+instance method. For example, all Ruby procs/lambdas  have a `#call` instance method.
 
 ```rb
 shape = Shaped::Shape(->(num) { (2..6).cover?(num) && num.even? })
@@ -198,7 +214,9 @@ shape.matched_by?(7) # seven is not even
 
 ## Shaped::Shapes::Equality
 
-`Shaped::Shapes::Equality` is the simplest shape of all; it just checks that an object is equal to the provided "shape definition" (checked via `==`). This "shape" probably isn't very useful, in practice.
+`Shaped::Shapes::Equality` is the simplest shape of all; it just checks that an object is equal to
+the provided "shape definition" (checked via `==`). This "shape" probably isn't very useful, in
+practice.
 
 ```rb
 shape = Shaped::Shape('this is the string')
@@ -210,7 +228,9 @@ shape.matched_by?('this is NOT the string')
 # => false
 ```
 
-The `Equality` shape might be useful when it gets used behind the scenes to build another type of shape, like a hash:
+The `Equality` shape might be useful when it gets used behind the scenes to build another type of
+shape, like a hash:
+
 ```rb
 shape = Shaped::Shape(verification_code: 'abc123', new_role: String)
 shape.class
@@ -228,7 +248,9 @@ shape.matched_by?(verification_code: '321cba', new_role: 'SuperAdmin')
 
 ## Shaped::Shapes::Or
 
-This shape is used behind the scenes to build "compound matchers", such as an Array shape that allows multiple different classes:
+This shape is used behind the scenes to build "compound matchers", such as an Array shape that
+allows multiple different classes:
+
 ```rb
 shape = Shaped::Shape([Rational, Integer])
 shape.to_s
@@ -241,7 +263,10 @@ shape.matched_by?([0.333, 55])
 # => false
 ```
 
-You can build an `Or` shape by invoking the `Shaped::Shape` constructor with more than one argument. Below is a (rather artificial) example illustrating this. To match this `shape`, an object must be either greater than zero OR an Integer (or both).
+You can build an `Or` shape by invoking the `Shaped::Shape` constructor with more than one argument.
+Below is a (rather artificial) example illustrating this. To match this `shape`, an object must be
+either greater than zero OR an Integer (or both).
+
 ```rb
 shape = Shaped::Shape(->(num) { num > 0 }, Integer)
 
@@ -257,7 +282,8 @@ shape.matched_by?(-11.5) # it's neither greater than 0 nor an Integer
 
 ## `#to_s`
 
-Each Shape type implements a `#to_s` instance method that aims to provide a relatively clear description of what the shape is checking for.
+Each Shape type implements a `#to_s` instance method that aims to provide a relatively clear
+description of what the shape is checking for.
 
 ```rb
 Shaped::Shape(number_of_widgets: Integer).to_s
@@ -281,11 +307,12 @@ Shaped::Shape('allowed string one', 'allowed string two').to_s
 
 # Development
 
-After checking out the repo, run `bundle install` to install dependencies. Then, run `bin/rspec` to run
-the tests. You can also run `bin/console` for an interactive prompt that will allow you to
+After checking out the repo, run `bundle install` to install dependencies. Then, run `bin/rspec` to
+run the tests. You can also run `bin/console` for an interactive prompt that will allow you to
 experiment.
 
-To install this gem onto your local machine from a development copy of the code, run `bundle exec rake install`.
+To install this gem onto your local machine from a development copy of the code, run `bundle exec
+rake install`.
 
 # For maintainers
 
@@ -300,5 +327,5 @@ To release a new version:
 
 # License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
+The gem is available as open source under the terms of the [MIT
+License](https://opensource.org/licenses/MIT).

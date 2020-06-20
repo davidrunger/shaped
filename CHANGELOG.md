@@ -1,3 +1,7 @@
+## Unreleased
+### Docs
+- Wrap lines in README.md to a max of 100 characters
+
 ## v0.5.6 (2020-06-19)
 ### Docs
 - Add a table of contents to README.md
