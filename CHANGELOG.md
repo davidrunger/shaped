@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.5 (2020-06-19)
 ### Docs
 - Add `require 'shaped'` to first example in README.md
 
