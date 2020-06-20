@@ -17,6 +17,7 @@ Validate the "shape" of Ruby objects!
       * [Shaped::Shapes::Hash](#shapedshapeshash)
       * [Shaped::Shapes::Array](#shapedshapesarray)
       * [Shaped::Shapes::Class](#shapedshapesclass)
+         * [ActiveModel validations](#activemodel-validations)
       * [Shaped::Shapes::Callable](#shapedshapescallable)
       * [Shaped::Shapes::Equality](#shapedshapesequality)
       * [Shaped::Shapes::Or](#shapedshapesor)
@@ -25,7 +26,7 @@ Validate the "shape" of Ruby objects!
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Fri Jun 19 20:58:03 PDT 2020 -->
+<!-- Added by: david, at: Fri Jun 19 21:29:30 PDT 2020 -->
 
 <!--te-->
 
@@ -165,6 +166,40 @@ shape.matched_by?(Integer) # `Integer` is not an _instance_ of `Numeric`
 # => false
 
 shape.matched_by?('five') # 'five' is not a Numeric
+# => false
+```
+
+### ActiveModel validations
+
+`shaped` depends on the [`activemodel` gem](https://rubygems.org/gems/activemodel) (provided by the
+Ruby on Rails web framework) and leverages ActiveModel to allow for the specification of additional
+validations when using the `Shaped::Shapes::Class` shape.
+
+ActiveModel makes many different validations available! They are listed in the [Active Record
+Validations](https://guides.rubyonrails.org/active_record_validations.html) Rails guide. Just a few
+examples are shown below.
+
+(These additional ActiveModel-style validations are optional; as seen in the examples above, you can
+also merely check that an object is an instance of a class, without any other additional
+validations.)
+
+```rb
+shape = Shaped::Shape(Numeric, numericality: { greater_than: 0 })
+
+shape.matched_by?(77)
+# => true
+shape.matched_by?(-273.15)
+# => false
+```
+
+```rb
+shape = Shaped::Shape(String, format: { with: /.+@.+/ }, length: { minimum: 6 })
+
+shape.matched_by?('james@protonmail.com')
+# => true
+shape.matched_by?('@tenderlove') # doesn't have a character preceding the "@"
+# => false
+shape.matched_by?('a@b.c') # too short
 # => false
 ```
 
