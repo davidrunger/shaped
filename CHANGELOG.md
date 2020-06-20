@@ -1,4 +1,4 @@
-## Unreleased (v0.6.0.alpha)
+## v0.6.0 (2020-06-19)
 ### Fixed
 - Fix bug that would occur in the `Shaped::Shape(...)` constructor when provided with a falsy first
   argument.
