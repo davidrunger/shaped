@@ -48,6 +48,42 @@ RSpec.describe(Shaped) do
           expect(shape).to be_a(Shaped::Shapes::Equality)
         end
       end
+
+      context 'when called with `false`' do
+        let(:shape_description) { false }
+
+        it 'returns an instance of Shaped::Shapes::Equality' do
+          expect(shape).to be_a(Shaped::Shapes::Equality)
+        end
+
+        describe 'the returned shape' do
+          subject(:matched_by?) { shape.matched_by?(test_object) }
+
+          context 'when tested against `false`' do
+            let(:test_object) { false }
+
+            it 'matches' do
+              expect(matched_by?).to eq(true)
+            end
+          end
+
+          context 'when tested against `nil`' do
+            let(:test_object) { nil }
+
+            it 'does not match' do
+              expect(matched_by?).to eq(false)
+            end
+          end
+
+          context 'when tested against `true`' do
+            let(:test_object) { true }
+
+            it 'does not match' do
+              expect(matched_by?).to eq(false)
+            end
+          end
+        end
+      end
     end
 
     context 'when called with multiple arguments' do
