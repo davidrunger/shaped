@@ -1,4 +1,4 @@
-## Unreleased
+## v0.5.8 (2020-06-19)
 ### Docs
 - Document ActiveModel-style validations (which are available for `Shaped::Shapes::Class`)
 
