@@ -38,6 +38,8 @@ The core concept of `shaped` is a "shape", by which we means "an object that des
 
 Here's an example:
 ```rb
+require 'shaped'
+
 shape = Shaped::Shapes::Hash.new({ email: String, age: Integer })
 
 shape.matched_by?({ email: 'dhh@hey.com', age: 44 }) # matches the expected hash "shape"
