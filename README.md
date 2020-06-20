@@ -1,4 +1,5 @@
 [![codecov](https://codecov.io/gh/davidrunger/shaped/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
+[![Build Status](https://travis-ci.com/davidrunger/shaped.svg?branch=master)](https://travis-ci.com/davidrunger/shaped)
 
 # Shaped
 
