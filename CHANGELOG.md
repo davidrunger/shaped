@@ -1,4 +1,4 @@
-## Unrealeased
+## v0.5.6 (2020-06-19)
 ### Docs
 - Add a table of contents to README.md
 
