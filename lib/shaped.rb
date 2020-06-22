@@ -27,6 +27,7 @@ module Shaped
         end
 
       case shape_description
+      when Shaped::Shape then shape_description
       when Hash then Shaped::Shapes::Hash.new(shape_description)
       when Array then Shaped::Shapes::Array.new(shape_description)
       when Class then Shaped::Shapes::Class.new(shape_description, validation_options)

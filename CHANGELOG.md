@@ -1,4 +1,7 @@
 ## Unreleased
+### Fixed
+- Make it possible to specify optional keys in a Hash shape (using an `Or` shape as the value)
+
 ### Docs
 - Remove explicit `git push` from release instructions
 
