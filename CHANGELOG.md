@@ -1,4 +1,4 @@
-## Unreleased
+## v0.6.4 (2020-06-22)
 ### Fixed
 - Make it possible to specify optional keys in a Hash shape (using an `Or` shape as the value)
 
