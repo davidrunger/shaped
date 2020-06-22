@@ -13,4 +13,4 @@ if ! [[ $COMMIT_MESSAGE =~ ^Prepare[[:space:]]to[[:space:]]release[[:space:]]v[0
   exit 1;
 fi
 
-bundle exec rake build release:guard_clean release:source_control_push
+bundle exec rake release

@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    shaped (0.6.1)
+    shaped (0.6.2.alpha)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
 

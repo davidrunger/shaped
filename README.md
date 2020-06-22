@@ -41,11 +41,10 @@ useful), but for now supporting `active_actions` is `shaped`'s *raison d'être*.
 
 # Installation
 
-Add the gem to your application's `Gemfile`. Because the gem is not released via RubyGems, you will
-need to install it from GitHub.
+Add the gem to your application's `Gemfile`:
 
 ```rb
-gem 'shaped', git: 'https://github.com/davidrunger/shaped.git'
+gem 'shaped'
 ```
 
 And then execute:
@@ -55,11 +54,10 @@ $ bundle install
 ```
 
 If you want to install the gem on your system independent of a project with a `Gemfile`, then you
-can easily do so via [`specific_install`](https://github.com/rdp/specific_install):
+can execute
 
 ```
-$ gem install specific_install
-$ gem specific_install davidrunger/shaped
+$ gem install shaped
 ```
 
 # Usage
@@ -359,7 +357,8 @@ To release a new version:
 4. `bundle install` (which will update `Gemfile.lock`)
 5. commit the changes with a message like `Prepare to release v0.1.1`
 6. push the changes to `origin/master` (GitHub) via `git push`
-7. run `bin/release`, which will create a git tag for the version and push git commits and tags
+7. run `bin/release` (which will create a git tag for the version, push git commits and
+   tags to GitHub, and push the gem to RubyGems)
 
 # License
 
