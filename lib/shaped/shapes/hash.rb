@@ -12,9 +12,6 @@ class Shaped::Shapes::Hash < Shaped::Shape
   def matched_by?(hash)
     return false if !hash.is_a?(Hash)
 
-    missing_keys = expected_keys - hash.keys
-    return false if missing_keys.any?
-
     @hash_description.all? do |key, expected_value_shape|
       expected_value_shape.matched_by?(hash[key])
     end
@@ -27,11 +24,5 @@ class Shaped::Shapes::Hash < Shaped::Shape
       end.join(', ')
 
     "{ #{printable_shape_description} }"
-  end
-
-  private
-
-  def expected_keys
-    @hash_description.keys
   end
 end

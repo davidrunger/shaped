@@ -9,6 +9,14 @@ RSpec.describe(Shaped) do
     context 'when called with a single argument (a shape description)' do
       subject(:shape) { Shaped::Shape(shape_description) }
 
+      context 'when called with a Shaped::Shape' do
+        let(:shape_description) { Shaped::Shape(Numeric, nil) }
+
+        it 'returns the shape_description itself' do
+          expect(shape).to eq(shape_description)
+        end
+      end
+
       context 'when called with a Hash' do
         let(:shape_description) { { email: String } }
 
