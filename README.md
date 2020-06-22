@@ -1,5 +1,7 @@
 [![codecov](https://codecov.io/gh/davidrunger/shaped/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
 [![Build Status](https://travis-ci.com/davidrunger/shaped.svg?branch=master)](https://travis-ci.com/davidrunger/shaped)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=davidrunger/shaped)](https://dependabot.com)
+[![Gem Version](https://badge.fury.io/rb/shaped.svg)](https://badge.fury.io/rb/shaped)
 
 # Shaped
 
