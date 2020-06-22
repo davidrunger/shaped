@@ -1,4 +1,4 @@
-## Unreleased
+## v0.6.3 (2020-06-21)
 ### Docs
 - Add badges for Dependabot status and RubyGems version
 
