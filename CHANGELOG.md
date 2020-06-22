@@ -1,4 +1,4 @@
-## Unreleased
+## v0.6.2 (2020-06-21)
 ### Docs
 - Update README.md and `bin/release` to reflect release via RubyGems
 
