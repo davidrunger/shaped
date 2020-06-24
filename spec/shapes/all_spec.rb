@@ -3,7 +3,7 @@
 RSpec.describe Shaped::Shapes::All do
   subject(:all_shape) { Shaped::Shapes::All.new(*all_shape_descriptions) }
 
-  let(:all_shape_descriptions) { [Numeric, ->(number) { number.even? }] }
+  let(:all_shape_descriptions) { [Numeric, :even?] }
   let(:test_object) { 88 }
 
   describe '#initialize' do
@@ -32,7 +32,7 @@ RSpec.describe Shaped::Shapes::All do
     context 'when the test object satisfies all of the sub-shape descriptions' do
       before do
         expect(test_object).to be_a(all_shape_descriptions.first)
-        expect(all_shape_descriptions.second.call(test_object)).to eq(true)
+        expect(test_object.public_send(all_shape_descriptions.second)).to eq(true)
       end
 
       it 'returns true' do
@@ -45,7 +45,7 @@ RSpec.describe Shaped::Shapes::All do
 
       before do
         expect(test_object).to be_a(all_shape_descriptions.first) # matched
-        expect(all_shape_descriptions.second.call(test_object)).to eq(false) # not matched
+        expect(test_object.public_send(all_shape_descriptions.second)).to eq(false) # not matched
       end
 
       it 'returns false' do
@@ -57,8 +57,8 @@ RSpec.describe Shaped::Shapes::All do
   describe '#to_s' do
     subject(:to_s) { all_shape.to_s }
 
-    it 'returns a readably formatted description of the list of allowed shapes' do
-      expect(to_s).to match(/Numeric AND Proc test defined at .*all_spec\.rb:\d+/)
+    it 'returns a readably formatted description of the list of required shapes' do
+      expect(to_s).to eq('Numeric AND object returning truthy for #even?')
     end
   end
 end

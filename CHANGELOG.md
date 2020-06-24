@@ -1,6 +1,10 @@
 ## Unreleased
 ### BREAKING CHANGES
 - Rename the `Or` shape to `Any`
+- Add a `Method` shape (where the shape description is the name of a method which, when called on a
+  test object, must return a truthy value). This is a breaking change because the `Shaped::Shape`
+  constructor will now return an instance of `Shaped::Shapes::Method` rather than
+  `Shaped::Shapes::Equality` when called with a Symbol argument.
 
 ### Added
 - Add an `All` shape (w/ multiple sub-shapes, all of which must be matched)
