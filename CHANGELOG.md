@@ -1,3 +1,7 @@
+## Unreleased
+### BREAKING CHANGES
+- Rename the `Or` shape to `Any`
+
 ## v0.6.4 (2020-06-22)
 ### Fixed
 - Make it possible to specify optional keys in a Hash shape (using an `Or` shape as the value)
@@ -92,7 +96,7 @@
   `Shaped::Shapes::Hash`):
   1. `Shaped::Shapes::Class`
   2. `Shaped::Shapes::Equality`
-  3. `Shaped::Shapes::Or`
+  3. `Shaped::Shapes::Any`
 - All hashes and arrays in shape definitions are parsed "recursively" as shape definitions. For
   example, instead of:
 

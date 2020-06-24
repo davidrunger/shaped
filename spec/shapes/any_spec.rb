@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe Shaped::Shapes::Or do
-  subject(:or_shape) { Shaped::Shapes::Or.new(*or_shape_descriptions) }
+RSpec.describe Shaped::Shapes::Any do
+  subject(:or_shape) { Shaped::Shapes::Any.new(*or_shape_descriptions) }
 
   let(:or_shape_descriptions) { [Numeric, String] }
   let(:test_object) { 'David Runger' }
@@ -56,7 +56,7 @@ RSpec.describe Shaped::Shapes::Or do
 
       it 'raises an error' do
         expect { or_shape }.to raise_error(Shaped::InvalidShapeDescription, <<~ERROR.squish)
-          A Shaped::Shapes::Or description must be a list of two or more shape descriptions.
+          A Shaped::Shapes::Any description must be a list of two or more shape descriptions.
         ERROR
       end
     end

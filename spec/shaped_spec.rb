@@ -100,16 +100,16 @@ RSpec.describe(Shaped) do
       context 'when called with two arguments' do
         let(:shape_descriptions) { [Integer, Float] }
 
-        it 'returns an instance of Shaped::Shapes::Or' do
-          expect(shape).to be_a(Shaped::Shapes::Or)
+        it 'returns an instance of Shaped::Shapes::Any' do
+          expect(shape).to be_a(Shaped::Shapes::Any)
         end
       end
 
       context 'when called with three arguments' do
         let(:shape_descriptions) { [Integer, Float, BigDecimal] }
 
-        it 'returns an instance of Shaped::Shapes::Or' do
-          expect(shape).to be_a(Shaped::Shapes::Or)
+        it 'returns an instance of Shaped::Shapes::Any' do
+          expect(shape).to be_a(Shaped::Shapes::Any)
         end
       end
     end
@@ -127,11 +127,11 @@ RSpec.describe(Shaped) do
 
       let(:min_value) { 21 }
 
-      it 'returns an instance of Shaped::Shapes::Or' do
-        expect(shape).to be_a(Shaped::Shapes::Or)
+      it 'returns an instance of Shaped::Shapes::Any' do
+        expect(shape).to be_a(Shaped::Shapes::Any)
       end
 
-      describe '#matched_by? for the returned `Or` shape' do
+      describe '#matched_by? for the returned `Any` shape' do
         subject(:matched_by?) { shape.matched_by?(test_object) }
 
         context 'when the test object is an instance of the first listed allowed class' do
@@ -183,7 +183,7 @@ RSpec.describe(Shaped) do
         end
       end
 
-      describe '#to_s for the returned `Or` shape' do
+      describe '#to_s for the returned `Any` shape' do
         subject(:to_s) { shape.to_s }
 
         it 'returns a good description of the shape' do

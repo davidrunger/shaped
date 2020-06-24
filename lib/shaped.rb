@@ -13,7 +13,7 @@ module Shaped
   def self.Shape(*shape_descriptions)
     validation_options = shape_descriptions.extract_options!
     if shape_descriptions.size >= 2
-      Shaped::Shapes::Or.new(*shape_descriptions, validation_options)
+      Shaped::Shapes::Any.new(*shape_descriptions, validation_options)
     else
       # If the shape_descriptions argument list was just one hash, then `extract_options!` would
       # have removed it, making `shape_descriptions` an empty array, so we need to "restore" the

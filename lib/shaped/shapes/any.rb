@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Shaped::Shapes::Or < Shaped::Shape
+class Shaped::Shapes::Any < Shaped::Shape
   def initialize(*shape_descriptions)
     validation_options = shape_descriptions.extract_options!
     if shape_descriptions.size <= 1
