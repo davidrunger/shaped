@@ -24,12 +24,13 @@ Validate the "shape" of Ruby objects!
       * [Shaped::Shapes::Callable](#shapedshapescallable)
       * [Shaped::Shapes::Equality](#shapedshapesequality)
       * [Shaped::Shapes::Any](#shapedshapesany)
+      * [Shaped::Shapes::All](#shapedshapesall)
       * [#to_s](#to_s)
    * [Development](#development)
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Wed Jun 24 13:02:34 PDT 2020 -->
+<!-- Added by: david, at: Wed Jun 24 13:23:10 PDT 2020 -->
 
 <!--te-->
 
@@ -299,7 +300,7 @@ shape.matched_by?([0.333, 55])
 # => false
 ```
 
-You can build an `Or` shape by invoking the `Shaped::Shape` constructor with more than one argument.
+You can build an `Any` shape by invoking the `Shaped::Shape` constructor with more than one argument.
 Below is a (rather artificial) example illustrating this. To match this `shape`, an object must be
 either greater than zero OR an Integer (or both).
 
@@ -313,6 +314,23 @@ shape.matched_by?(11.5) # it's greater than 0
 # => true
 
 shape.matched_by?(-11.5) # it's neither greater than 0 nor an Integer
+# => false
+```
+
+## Shaped::Shapes::All
+
+This shape can be used to combine multiple checks, all of which must be true for a test object in
+order for `#matched_by?` to be true:
+
+```rb
+shape = Shaped::Shapes::All.new(Numeric, ->(number) { number.even? })
+shape.to_s
+# => "Numeric AND Proc test defined at (eval):10"
+
+shape.matched_by?(22) # 22 is both a Numeric and `#even?`
+# => true
+
+shape.matched_by?(33) # 33 is a Numeric but it's not `#even?`
 # => false
 ```
 
