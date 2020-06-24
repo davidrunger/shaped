@@ -23,13 +23,13 @@ Validate the "shape" of Ruby objects!
          * [ActiveModel validations](#activemodel-validations)
       * [Shaped::Shapes::Callable](#shapedshapescallable)
       * [Shaped::Shapes::Equality](#shapedshapesequality)
-      * [Shaped::Shapes::Or](#shapedshapesor)
+      * [Shaped::Shapes::Any](#shapedshapesany)
       * [#to_s](#to_s)
    * [Development](#development)
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Fri Jun 19 21:29:30 PDT 2020 -->
+<!-- Added by: david, at: Wed Jun 24 13:02:34 PDT 2020 -->
 
 <!--te-->
 
@@ -91,7 +91,7 @@ types (all of which inherit from `Shaped::Shape`):
 1. `Shaped::Shapes::Class`
 1. `Shaped::Shapes::Callable`
 1. `Shaped::Shapes::Equality`
-1. `Shaped::Shapes::Or`
+1. `Shaped::Shapes::Any`
 
 Examples illustrating the use of each shape type are below.
 
@@ -282,7 +282,7 @@ shape.matched_by?(verification_code: '321cba', new_role: 'SuperAdmin')
 # => false
 ```
 
-## Shaped::Shapes::Or
+## Shaped::Shapes::Any
 
 This shape is used behind the scenes to build "compound matchers", such as an Array shape that
 allows multiple different classes:
