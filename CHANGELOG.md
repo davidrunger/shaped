@@ -1,4 +1,4 @@
-## Unreleased
+## v0.7.0 (2020-06-24)
 ### BREAKING CHANGES
 - Rename the `Or` shape to `Any`
 - Add a `Method` shape (where the shape description is the name of a method which, when called on a
