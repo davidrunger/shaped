@@ -33,6 +33,14 @@ RSpec.describe(Shaped) do
         end
       end
 
+      context 'when called with a Symbol' do
+        let(:shape_description) { :valid? }
+
+        it 'returns an instance of Shaped::Shapes::Method' do
+          expect(shape).to be_a(Shaped::Shapes::Method)
+        end
+      end
+
       context 'when called with a Class' do
         let(:shape_description) { Numeric }
 

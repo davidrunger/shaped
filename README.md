@@ -21,6 +21,7 @@ Validate the "shape" of Ruby objects!
       * [Shaped::Shapes::Array](#shapedshapesarray)
       * [Shaped::Shapes::Class](#shapedshapesclass)
          * [ActiveModel validations](#activemodel-validations)
+      * [Shaped::Shapes::Method](#shapedshapesmethod)
       * [Shaped::Shapes::Callable](#shapedshapescallable)
       * [Shaped::Shapes::Equality](#shapedshapesequality)
       * [Shaped::Shapes::Any](#shapedshapesany)
@@ -30,7 +31,7 @@ Validate the "shape" of Ruby objects!
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Wed Jun 24 13:23:10 PDT 2020 -->
+<!-- Added by: david, at: Wed Jun 24 13:56:49 PDT 2020 -->
 
 <!--te-->
 
@@ -202,6 +203,21 @@ shape.matched_by?('james@protonmail.com')
 shape.matched_by?('@tenderlove') # doesn't have a character preceding the "@"
 # => false
 shape.matched_by?('a@b.c') # too short
+# => false
+```
+
+## Shaped::Shapes::Method
+
+This shape allows specifying a method name that, when called upon a test object, must return a
+truthy value in order for `matched_by?` to be true.
+
+```rb
+shape = Shaped::Shape(:odd?)
+
+shape.matched_by?(55)
+# => true
+
+shape.matched_by?(60)
 # => false
 ```
 
