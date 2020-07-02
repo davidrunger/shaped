@@ -1,4 +1,4 @@
-## Unreleased
+## v0.7.1 (2020-07-02)
 ### Internal
 - Source Rubocop rules/config from `runger_style` gem
 
