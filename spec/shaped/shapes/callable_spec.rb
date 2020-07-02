@@ -47,7 +47,7 @@ RSpec.describe Shaped::Shapes::Callable do
       let(:callable_shape_description) { ->(object) { object.even? } }
 
       it 'returns a string mentioning the line where the callable is defined' do
-        expect(to_s).to match(%r{Proc test defined at .*/spec/shapes/callable_spec.rb:\d+})
+        expect(to_s).to match(%r{Proc test defined at .*/spec/shaped/shapes/callable_spec.rb:\d+})
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe Shaped::Shapes::Callable do
       let(:callable_shape_description) { EvenParityTester.new }
 
       it 'returns a string mentioning the line where the callable is defined' do
-        expect(to_s).to match(%r{#call test defined at .*/spec/shapes/callable_spec.rb:59})
+        expect(to_s).to match(%r{#call test defined at .*/spec/shaped/shapes/callable_spec.rb:59})
       end
     end
   end

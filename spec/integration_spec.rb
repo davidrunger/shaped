@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'everything working together' do
+RSpec.describe 'everything working together' do # rubocop:disable RSpec/DescribeClass
   describe 'when composing Hash matchers inside of an Array matcher' do
     subject(:matched_by?) { array_shape.matched_by?(test_array) }
 
