@@ -7,10 +7,16 @@ GIT
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
 
+GIT
+  remote: https://github.com/davidrunger/runger_style.git
+  revision: 6aef7c7978c9b5306e518c18a067e2fdad2c8da1
+  specs:
+    runger_style (0.2.1)
+
 PATH
   remote: .
   specs:
-    shaped (0.7.0)
+    shaped (0.7.1.alpha)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
 
@@ -101,6 +107,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.0.3)
       parser (>= 2.7.0.1)
+    rubocop-performance (1.6.1)
+      rubocop (>= 0.71.0)
+    rubocop-rspec (1.40.0)
+      rubocop (>= 0.68.1)
     ruby-progressbar (1.10.1)
     shellany (0.0.1)
     simplecov (0.18.5)
@@ -113,7 +123,7 @@ GEM
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     url (0.3.2)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
@@ -126,6 +136,9 @@ DEPENDENCIES
   rake
   rspec
   rubocop
+  rubocop-performance
+  rubocop-rspec
+  runger_style!
   shaped!
 
 BUNDLED WITH

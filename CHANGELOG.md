@@ -1,3 +1,7 @@
+## Unreleased
+### Internal
+- Source Rubocop rules/config from `runger_style` gem
+
 ## v0.7.0 (2020-06-24)
 ### BREAKING CHANGES
 - Rename the `Or` shape to `Any`
