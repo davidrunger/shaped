@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Shaped
-  VERSION = '0.7.2.alpha'
+  VERSION = '0.7.2'
 end
