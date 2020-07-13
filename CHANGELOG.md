@@ -1,3 +1,7 @@
+## Unreleased
+### Dependencies
+- Bump `rubocop` to 0.88.0 and `runger_style` to 0.2.3
+
 ## v0.7.1 (2020-07-02)
 ### Internal
 - Source Rubocop rules/config from `runger_style` gem
