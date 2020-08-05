@@ -6,7 +6,7 @@ module Shaped::Shapes ; end
 require 'active_support/all'
 require 'active_model'
 require_relative './shaped/shape.rb'
-Dir[File.dirname(__FILE__) + '/**/*.rb'].sort.each { |file| require file }
+Dir["#{File.dirname(__FILE__)}/**/*.rb"].sort.each { |file| require file }
 
 module Shaped
   # rubocop:disable Naming/MethodName, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
