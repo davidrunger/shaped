@@ -1,3 +1,7 @@
+## Unreleased
+### Removed
+- `::name` method removed for anonymous validator class in `Shaped::Shapes::Class`
+
 ## v0.7.2 (2020-07-13)
 ### Dependencies
 - Bump `rubocop` to 0.88.0 and `runger_style` to 0.2.3

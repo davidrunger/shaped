@@ -34,13 +34,6 @@ class Shaped::Shapes::Class < Shaped::Shape
       attr_accessor :value
 
       validates :value, validations
-
-      class << self
-        # ActiveModel requires the class to have a `name`
-        def name
-          'Shaped::Shapes::Class::AnonymousValidator'
-        end
-      end
     end
   end
 
