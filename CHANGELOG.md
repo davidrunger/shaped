@@ -1,6 +1,6 @@
-## Unreleased
+## v0.7.3 (2021-01-07)
 ### Removed
-- `::name` method removed for anonymous validator class in `Shaped::Shapes::Class`
+- Removed `::name` method for anonymous validator class in `Shaped::Shapes::Class`
 
 ## v0.7.2 (2020-07-13)
 ### Dependencies
