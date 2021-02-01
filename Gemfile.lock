@@ -16,7 +16,7 @@ GIT
 PATH
   remote: .
   specs:
-    shaped (0.8.0.alpha)
+    shaped (0.8.0)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
 
@@ -141,4 +141,4 @@ DEPENDENCIES
   shaped!
 
 BUNDLED WITH
-   2.1.2
+   2.1.4

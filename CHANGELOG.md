@@ -1,4 +1,4 @@
-## Unreleased
+## v0.8.0 (2021-01-31)
 ### Added
 - Accept `Method` as a `Callable` shape definition
 
