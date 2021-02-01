@@ -43,6 +43,18 @@ RSpec.describe Shaped::Shapes::Callable do
   describe '#to_s' do
     subject(:to_s) { callable_shape.to_s }
 
+    context 'when the callable is a `Method`' do
+      def number_is_greater_than_thirty?(number)
+        number > 30
+      end
+
+      let(:callable_shape_description) { method(:number_is_greater_than_thirty?) }
+
+      it 'returns a string mentioning the line where the callable is defined' do
+        expect(to_s).to match(%r{Method defined at .*/spec/shaped/shapes/callable_spec.rb:\d+})
+      end
+    end
+
     context 'when the callable is a proc' do
       let(:callable_shape_description) { ->(object) { object.even? } }
 
@@ -73,7 +85,7 @@ RSpec.describe Shaped::Shapes::Callable do
       let(:callable_shape_description) { EvenParityTester.new }
 
       it 'returns a string mentioning the line where the callable is defined' do
-        expect(to_s).to match(%r{#call test defined at .*/spec/shaped/shapes/callable_spec.rb:59})
+        expect(to_s).to match(%r{#call test defined at .*/spec/shaped/shapes/callable_spec.rb:\d+})
       end
     end
   end

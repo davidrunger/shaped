@@ -1,5 +1,4 @@
 [![codecov](https://codecov.io/gh/davidrunger/shaped/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
-[![Build Status](https://travis-ci.com/davidrunger/shaped.svg?branch=master)](https://travis-ci.com/davidrunger/shaped)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=davidrunger/shaped)](https://dependabot.com)
 [![Gem Version](https://badge.fury.io/rb/shaped.svg)](https://badge.fury.io/rb/shaped)
 
@@ -240,6 +239,23 @@ shape.matched_by?(5) # fails the `#even?` check
 shape.matched_by?(10) # fails the `#cover?` check (10 is too high)
 # => false
 ```
+
+If you'd like to provide a named method rather than an anonymous proc/lambda, you can do that, too:
+
+```rb
+def number_is_greater_than_thirty?(number)
+  number > 30
+end
+
+shape = Shaped::Shape(method(:number_is_greater_than_thirty?))
+
+shape.matched_by?(31)
+# => true
+
+shape.matched_by?(29)
+# => false
+```
+
 You can also provide an instance of a custom class that implements a `#call` instance method:
 
 ```rb

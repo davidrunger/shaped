@@ -1,3 +1,11 @@
+## Unreleased
+### Added
+- Accept `Method` as a `Callable` shape definition
+
+### Internal
+- Bump Ruby version from 2.7.0 to 2.7.2
+- Move from Travis to GitHub Actions
+
 ## v0.7.3 (2021-01-07)
 ### Removed
 - Removed `::name` method for anonymous validator class in `Shaped::Shapes::Class`
