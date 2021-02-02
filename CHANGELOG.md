@@ -1,3 +1,6 @@
+## Unreleased
+[no unreleased changes yet]
+
 ## v0.8.1 (2021-02-01)
 ### Internal
 - Use `release_assistant` gem to manage the release process
