@@ -1,5 +1,6 @@
 ## Unreleased
-[no unreleased changes yet]
+### Internal
+- Update release_assistant
 
 ## v0.8.1 (2021-02-01)
 ### Internal
