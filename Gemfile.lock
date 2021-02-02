@@ -8,6 +8,16 @@ GIT
       rspec (>= 2.99.0, < 4.0)
 
 GIT
+  remote: https://github.com/davidrunger/release_assistant.git
+  revision: 81e5f68921588112e696a9ed18e56c00876290d3
+  specs:
+    release_assistant (0.3.1.alpha)
+      activesupport (~> 6.0)
+      colorize (~> 0.8)
+      memoist (~> 0.16)
+      slop (~> 4.8)
+
+GIT
   remote: https://github.com/davidrunger/runger_style.git
   revision: bfa1eb8c633b60cb41fcd47627dcce5ca4f5ca59
   specs:
@@ -16,7 +26,7 @@ GIT
 PATH
   remote: .
   specs:
-    shaped (0.8.0)
+    shaped (0.8.1.alpha)
       activemodel (~> 6.0)
       activesupport (~> 6.0)
 
@@ -37,6 +47,7 @@ GEM
     codecov (0.4.2)
       simplecov (>= 0.15, < 0.22)
     coderay (1.1.3)
+    colorize (0.8.1)
     concurrent-ruby (1.1.8)
     diff-lcs (1.4.4)
     docile (1.3.5)
@@ -58,6 +69,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lumberjack (1.2.5)
+    memoist (0.16.2)
     method_source (1.0.0)
     minitest (5.14.3)
     nenv (0.3.0)
@@ -118,6 +130,7 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.2)
+    slop (4.8.2)
     thor (1.0.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -133,6 +146,7 @@ DEPENDENCIES
   guard-espect!
   pry-byebug
   rake
+  release_assistant!
   rspec
   rubocop
   rubocop-performance
