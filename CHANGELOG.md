@@ -1,3 +1,7 @@
+## Unreleased
+### Internal
+- Use `release_assistant` gem to manage the release process
+
 ## v0.8.0 (2021-01-31)
 ### Added
 - Accept `Method` as a `Callable` shape definition
