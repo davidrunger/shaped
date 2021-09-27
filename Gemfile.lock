@@ -119,9 +119,8 @@ GEM
     rubocop-performance (1.11.5)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rspec (2.4.0)
-      rubocop (~> 1.0)
-      rubocop-ast (>= 1.1.0)
+    rubocop-rspec (2.5.0)
+      rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
     shellany (0.0.1)
     simplecov (0.21.2)
@@ -134,7 +133,7 @@ GEM
     thor (1.0.1)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (2.0.0)
+    unicode-display_width (2.1.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
