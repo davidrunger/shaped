@@ -28,5 +28,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency('activemodel', '~> 6.0')
-  spec.add_runtime_dependency('activesupport', '~> 6.0')
+  spec.add_runtime_dependency('activesupport', '>= 6', '< 8')
 end
