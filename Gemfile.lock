@@ -9,10 +9,10 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant.git
-  revision: 1c4f16def57398fd520ee617d434592fc0d8acc4
+  revision: 5152dcc7fb7e24a2abaa550ec7186f686bf2512d
   specs:
     release_assistant (0.3.3.alpha)
-      activesupport (~> 6.0)
+      activesupport (>= 6, < 8)
       colorize (~> 0.8)
       memoist (~> 0.16)
       slop (~> 4.8)
@@ -134,7 +134,7 @@ GEM
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.1.0)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.2)
 
 PLATFORMS
   ruby
