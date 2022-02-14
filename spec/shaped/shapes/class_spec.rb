@@ -52,10 +52,10 @@ RSpec.describe Shaped::Shapes::Class do
     end
 
     describe '#to_s' do
-      subject(:to_s) { class_shape.to_s }
+      subject(:to_s_method) { class_shape.to_s }
 
       it 'returns a readably formatted description of the expected class' do
-        expect(to_s).to eq('Numeric')
+        expect(to_s_method).to eq('Numeric')
       end
     end
   end
@@ -119,10 +119,10 @@ RSpec.describe Shaped::Shapes::Class do
     end
 
     describe '#to_s' do
-      subject(:to_s) { class_shape.to_s }
+      subject(:to_s_method) { class_shape.to_s }
 
       it 'returns a readably formatted description of the expected class and validations' do
-        expect(to_s).to eq(<<~TO_S.squish)
+        expect(to_s_method).to eq(<<~TO_S.squish)
           Numeric validating {:numericality=>{:greater_than_or_equal_to=>0,
           :less_than_or_equal_to=>1000}}
         TO_S

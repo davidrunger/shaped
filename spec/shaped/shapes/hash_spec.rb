@@ -105,17 +105,17 @@ RSpec.describe Shaped::Shapes::Hash do
   end
 
   describe '#to_s' do
-    subject(:to_s) { hash_shape.to_s }
+    subject(:to_s_method) { hash_shape.to_s }
 
     it 'returns a readably formatted description of the expected hash shape' do
-      expect(to_s).to eq('{ :email => String }')
+      expect(to_s_method).to eq('{ :email => String }')
     end
 
     context 'when an expected value is a specific string' do
       let(:hash_shape_description) { { secret_key: 'ABC123' } }
 
       it 'renders the string within quotes' do
-        expect(to_s).to eq('{ :secret_key => "ABC123" }')
+        expect(to_s_method).to eq('{ :secret_key => "ABC123" }')
       end
     end
   end

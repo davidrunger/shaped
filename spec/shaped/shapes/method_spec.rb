@@ -35,10 +35,10 @@ RSpec.describe Shaped::Shapes::Method do
   end
 
   describe '#to_s' do
-    subject(:to_s) { method_shape.to_s }
+    subject(:to_s_method) { method_shape.to_s }
 
     it 'returns a string naming the method that must be matched' do
-      expect(to_s).to eq('object returning truthy for #even?')
+      expect(to_s_method).to eq('object returning truthy for #even?')
     end
   end
 end
