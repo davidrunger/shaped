@@ -35,10 +35,10 @@ RSpec.describe Shaped::Shapes::Equality do
   end
 
   describe '#to_s' do
-    subject(:to_s) { equality_shape.to_s }
+    subject(:to_s_method) { equality_shape.to_s }
 
     it 'returns a readably formatted description of the expected value' do
-      expect(to_s).to eq('"David Runger"')
+      expect(to_s_method).to eq('"David Runger"')
     end
   end
 end

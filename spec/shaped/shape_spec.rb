@@ -24,10 +24,10 @@ RSpec.describe Shaped::Shape do
   end
 
   describe '#to_s' do
-    subject(:to_s) { shape.to_s }
+    subject(:to_s_method) { shape.to_s }
 
     it 'raises an error' do
-      expect { to_s }.to raise_error(<<~ERROR.squish)
+      expect { to_s_method }.to raise_error(<<~ERROR.squish)
         `#to_s` must be implemented for Shaped::Shape!
       ERROR
     end

@@ -192,10 +192,10 @@ RSpec.describe(Shaped) do
       end
 
       describe '#to_s for the returned `Any` shape' do
-        subject(:to_s) { shape.to_s }
+        subject(:to_s_method) { shape.to_s }
 
         it 'returns a good description of the shape' do
-          expect(to_s).to eq(<<~TO_S.squish)
+          expect(to_s_method).to eq(<<~TO_S.squish)
             Float validating {:numericality=>{:greater_than=>21}} OR Integer validating
             {:numericality=>{:greater_than=>21}}
           TO_S

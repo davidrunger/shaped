@@ -89,10 +89,10 @@ RSpec.describe Shaped::Shapes::Any do
   end
 
   describe '#to_s' do
-    subject(:to_s) { any_shape.to_s }
+    subject(:to_s_method) { any_shape.to_s }
 
     it 'returns a readably formatted description of the list of allowed shapes' do
-      expect(to_s).to eq('Numeric OR String')
+      expect(to_s_method).to eq('Numeric OR String')
     end
   end
 end
