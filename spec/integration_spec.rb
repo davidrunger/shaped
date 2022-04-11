@@ -38,10 +38,7 @@ RSpec.describe 'everything working together' do # rubocop:disable RSpec/Describe
     subject(:matched_by?) { hash_shape.matched_by?(test_hash) }
 
     let(:hash_shape) do
-      Shaped::Shape(
-        array_of_numerics: [Numeric],
-        array_of_strings: [String],
-      )
+      Shaped::Shape(array_of_numerics: [Numeric], array_of_strings: [String])
     end
 
     context 'when the test hash matches the pattern' do
