@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant.git
-  revision: e517c420240ca35ec17c9b97d804551c6ac4c5f9
+  revision: 777a63abe0d2d605b8f3b7066f62b5158b01e3b6
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (>= 6, < 8)
