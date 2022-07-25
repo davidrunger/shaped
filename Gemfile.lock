@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/davidrunger/release_assistant.git
-  revision: 3108aacac7f054f9261ceeea2d689259e7fc5f83
+  revision: c9c71480c9c4c94de73de2f5081b6059afc99375
   specs:
     release_assistant (0.3.3.alpha)
       activesupport (>= 6, < 8)
@@ -132,7 +132,7 @@ GEM
     simplecov_json_formatter (0.1.3)
     slop (4.9.2)
     thor (1.1.0)
-    tzinfo (2.0.4)
+    tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.2.0)
 
