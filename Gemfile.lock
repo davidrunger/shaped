@@ -8,13 +8,6 @@ GIT
       memoist (~> 0.16)
       slop (~> 4.8)
 
-GIT
-  remote: https://github.com/davidrunger/runger_style.git
-  revision: 70a51d91a324c23a0dcd206f2d4ef6008b66beca
-  specs:
-    runger_style (0.2.22.alpha)
-      rubocop (>= 1.38.0, < 2)
-
 PATH
   remote: .
   specs:
@@ -98,6 +91,8 @@ GEM
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
+    runger_style (0.2.22)
+      rubocop (>= 1.38.0, < 2)
     simplecov (0.21.2)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -122,7 +117,7 @@ DEPENDENCIES
   rubocop
   rubocop-performance
   rubocop-rspec
-  runger_style!
+  runger_style
   shaped!
 
 BUNDLED WITH
