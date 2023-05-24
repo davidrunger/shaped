@@ -20,6 +20,6 @@ group :development do
 end
 
 group :test do
-  gem 'codecov', require: false
   gem 'rspec'
+  gem 'simplecov-cobertura', require: false
 end
