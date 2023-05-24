@@ -2,8 +2,9 @@
 
 require 'simplecov'
 if ENV.fetch('CI', nil) == 'true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  require 'simplecov-cobertura'
+  SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
+  SimpleCov.coverage_dir('tmp/simple_cov') # must match codecov-action directory option
 end
 SimpleCov.start do
   add_filter(%r{\A/spec/})
