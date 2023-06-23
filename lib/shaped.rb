@@ -5,7 +5,7 @@ module Shaped::Shapes ; end
 
 require 'active_model'
 require 'active_support/all'
-require_relative './shaped/shape.rb'
+require_relative 'shaped/shape.rb'
 Dir["#{File.dirname(__FILE__)}/**/*.rb"].each { |file| require file }
 
 module Shaped
