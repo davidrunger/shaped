@@ -3,7 +3,9 @@
 RSpec.describe Shaped::Shapes::Callable do
   subject(:callable_shape) { Shaped::Shapes::Callable.new(callable_shape_description) }
 
+  # rubocop:disable Style/SymbolProc
   let(:callable_shape_description) { ->(object) { object.even? } }
+  # rubocop:enable Style/SymbolProc
   let(:test_object) { 32 }
 
   describe '#initialize' do
@@ -57,11 +59,20 @@ RSpec.describe Shaped::Shapes::Callable do
     end
 
     context 'when the callable is a proc' do
-      let(:callable_shape_description) { ->(object) { object.even? } }
+      before { expect(callable_shape_description).to be_a(Proc) }
 
       it 'returns a string mentioning the line where the callable is defined' do
         expect(to_s_method).
           to match(%r{Proc test defined at .*/spec/shaped/shapes/callable_spec.rb:\d+})
+      end
+    end
+
+    context 'when the callable is a proc without a source location' do
+      let(:callable_shape_description) { lambda(&:even?) }
+
+      it 'returns a string mentioning a proc defined at an unknown location' do
+        expect(to_s_method).
+          to match(%r{Proc test defined at unknown location})
       end
     end
 
