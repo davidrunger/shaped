@@ -12,7 +12,12 @@ class Shaped::Shapes::Callable < Shaped::Shape
   def to_s
     case @callable
     when Method then "Method defined at #{@callable.source_location.map(&:to_s).join(':')}"
-    when Proc then "Proc test defined at #{@callable.source_location.map(&:to_s).join(':')}"
+    when Proc
+      if @callable.source_location
+        "Proc test defined at #{@callable.source_location.map(&:to_s).join(':')}"
+      else
+        'Proc test defined at unknown location'
+      end
     else "#call test defined at #{@callable.method(:call).source_location.map(&:to_s).join(':')}"
     end
   end
