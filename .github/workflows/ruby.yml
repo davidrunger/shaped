@@ -21,6 +21,7 @@ jobs:
     - name: Ensure no git diff
       run: git diff --exit-code && git diff-index --quiet --cached HEAD
     - name: Upload Code Coverage
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         directory: tmp/simple_cov
+        token: ${{ secrets.CODECOV_TOKEN }}
