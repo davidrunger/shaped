@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/davidrunger/shaped/branch/master/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
+[![codecov](https://codecov.io/gh/davidrunger/shaped/branch/main/graph/badge.svg)](https://codecov.io/gh/davidrunger/shaped)
 [![Gem Version](https://badge.fury.io/rb/shaped.svg)](https://badge.fury.io/rb/shaped)
 
 # Shaped
