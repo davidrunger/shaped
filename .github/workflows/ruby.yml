@@ -3,7 +3,7 @@ name: Run Tests, Linters, Etc.
 on:
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build:
