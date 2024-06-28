@@ -1,5 +1,5 @@
 ## Unreleased
-[no unreleased changes yet]
+- Enforce only major and minor parts of required Ruby version (loosening the required Ruby version from 3.3.3 to 3.3.0)
 
 ## v0.12.0 (2024-06-15)
 - Rename primary branch from `master` to `main`
