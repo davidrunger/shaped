@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shaped (0.12.1.alpha)
+    shaped (0.13.0)
       activemodel (>= 6, < 8)
       activesupport (>= 6, < 8)
 
