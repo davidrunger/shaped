@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = 'Validate the "shape" of Ruby objects.'
   spec.homepage      = 'https://github.com/davidrunger/shaped'
   spec.license       = 'MIT'
-  required_ruby_version = File.read('.ruby-version').rstrip.sub(/\A(\d+\.\d+)\.\d+\z/, '.0')
+  required_ruby_version = File.read('.ruby-version').rstrip.sub(/\A(\d+\.\d+)\.\d+\z/, '\1.0')
   spec.required_ruby_version = ">= #{required_ruby_version}"
 
   spec.metadata['rubygems_mfa_required'] = 'true'
