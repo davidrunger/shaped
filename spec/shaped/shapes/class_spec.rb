@@ -123,8 +123,8 @@ RSpec.describe Shaped::Shapes::Class do
 
       it 'returns a readably formatted description of the expected class and validations' do
         expect(to_s_method).to eq(<<~TO_S.squish)
-          Numeric validating {:numericality=>{:greater_than_or_equal_to=>0,
-          :less_than_or_equal_to=>1000}}
+          Numeric validating {numericality: {greater_than_or_equal_to: 0,
+          less_than_or_equal_to: 1000}}
         TO_S
       end
     end
