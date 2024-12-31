@@ -198,8 +198,8 @@ RSpec.describe(Shaped) do
 
         it 'returns a good description of the shape' do
           expect(to_s_method).to eq(<<~TO_S.squish)
-            Float validating {:numericality=>{:greater_than=>21}} OR Integer validating
-            {:numericality=>{:greater_than=>21}}
+            Float validating {numericality: {greater_than: 21}} OR Integer validating
+            {numericality: {greater_than: 21}}
           TO_S
         end
       end
