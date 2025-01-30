@@ -9,8 +9,13 @@ gemspec
 
 group :development, :test do
   gem 'amazing_print'
-  gem 'pry-byebug'
+  # Remove if/when byebug brings in this dependency for us.
+  gem 'irb'
+  # Go back to upstream if/when https://github.com/deivid-rodriguez/pry-byebug/pull/ 428 is merged.
+  gem 'pry-byebug', github: 'davidrunger/pry-byebug'
   gem 'rake'
+  # Remove if/when byebug brings in this dependency for us.
+  gem 'reline'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rspec', require: false
