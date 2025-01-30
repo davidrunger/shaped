@@ -11,7 +11,7 @@ SimpleCov.start do
 end
 
 require 'bundler/setup'
-Bundler.require
+Bundler.require(:default, 'test')
 
 require 'shaped'
 
