@@ -9,7 +9,7 @@ require_relative 'shaped/shape.rb'
 Dir["#{File.dirname(__FILE__)}/**/*.rb"].each { |file| require file }
 
 module Shaped
-  # rubocop:disable Naming/MethodName, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:disable Naming/MethodName, Metrics/PerceivedComplexity
   def self.Shape(*shape_descriptions)
     validation_options = shape_descriptions.extract_options!
     if shape_descriptions.size >= 2
@@ -41,7 +41,7 @@ module Shaped
       end
     end
   end
-  # rubocop:enable Naming/MethodName, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  # rubocop:enable Naming/MethodName, Metrics/PerceivedComplexity
 end
 
 class Shaped::InvalidShapeDescription < StandardError ; end
