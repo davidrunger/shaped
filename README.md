@@ -83,15 +83,16 @@ shape.matched_by?({ email: 'dhh@hey.com', age: 44.4 }) # `age` is a Float, not I
 
 ### Shape types
 
-That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s six shape
-types (all of which inherit from `Shaped::Shape`):
+That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s eight shape types (all of which inherit from `Shaped::Shape`):
 
 1. `Shaped::Shapes::Hash`
 1. `Shaped::Shapes::Array`
 1. `Shaped::Shapes::Class`
+1. `Shaped::Shapes::Method`
 1. `Shaped::Shapes::Callable`
 1. `Shaped::Shapes::Equality`
 1. `Shaped::Shapes::Any`
+1. `Shaped::Shapes::All`
 
 Examples illustrating the use of each shape type are below.
 
