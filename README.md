@@ -5,16 +5,15 @@
 
 Validate the "shape" of Ruby objects!
 
-# Table of Contents
+## Table of Contents
 
 <!--ts-->
-   * [Shaped](#shaped)
+* [Shaped](#shaped)
    * [Table of Contents](#table-of-contents)
    * [Context](#context)
    * [Installation](#installation)
    * [Usage](#usage)
       * [Shape types](#shape-types)
-      * [Shaped::Shape(...) constructor method](#shapedshape-constructor-method)
       * [Shaped::Shapes::Hash](#shapedshapeshash)
       * [Shaped::Shapes::Array](#shapedshapesarray)
       * [Shaped::Shapes::Class](#shapedshapesclass)
@@ -29,11 +28,12 @@ Validate the "shape" of Ruby objects!
    * [For maintainers](#for-maintainers)
    * [License](#license)
 
-<!-- Added by: david, at: Wed Jun 24 13:56:49 PDT 2020 -->
+<!-- Created by https://github.com/ekalinin/github-markdown-toc -->
+<!-- Added by: david, at: Sat Mar 22 04:43:01 AM CDT 2025 -->
 
 <!--te-->
 
-# Context
+## Context
 
 The primary purpose of this gem, for now, is to serve as a dependency for the
 [`active_actions`](https://github.com/davidrunger/active_actions/) gem.
@@ -41,7 +41,7 @@ The primary purpose of this gem, for now, is to serve as a dependency for the
 The gem probably has other potential uses, too (for example, a `have_shape` RSpec matcher might be
 useful), but for now supporting `active_actions` is `shaped`'s *raison d'être*.
 
-# Installation
+## Installation
 
 Add the gem to your application's `Gemfile`:
 
@@ -62,7 +62,7 @@ can execute
 $ gem install shaped
 ```
 
-# Usage
+## Usage
 
 The core concept of `shaped` is a "shape", by which we mean "an object that describes some
 characteristic(s) that we want to be able to test other objects against".
@@ -81,21 +81,22 @@ shape.matched_by?({ email: 'dhh@hey.com', age: 44.4 }) # `age` is a Float, not I
 # => false
 ```
 
-## Shape types
+### Shape types
 
-That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s six shape
-types (all of which inherit from `Shaped::Shape`):
+That example references the `Shaped::Shapes::Hash` class, which is one of  `shaped`'s eight shape types (all of which inherit from `Shaped::Shape`):
 
 1. `Shaped::Shapes::Hash`
 1. `Shaped::Shapes::Array`
 1. `Shaped::Shapes::Class`
+1. `Shaped::Shapes::Method`
 1. `Shaped::Shapes::Callable`
 1. `Shaped::Shapes::Equality`
 1. `Shaped::Shapes::Any`
+1. `Shaped::Shapes::All`
 
 Examples illustrating the use of each shape type are below.
 
-## `Shaped::Shape(...)` constructor method
+### `Shaped::Shape(...)` constructor method
 
 In the example above, we built an instance of `Shaped::Shapes::Hash` by calling
 `Shaped::Shapes::Hash.new(...)`, but usually an easier/better way to build a shape object is using
@@ -115,7 +116,7 @@ The `Shaped::Shape` constructor method will automatically build the appropriate 
 the argument to `Shaped::Shape` was a `Hash`, the `Shaped::Shape` constructor method built and
 returned an instance of `Shaped::Shapes::Hash`.
 
-## Shaped::Shapes::Hash
+### Shaped::Shapes::Hash
 
 ```rb
 shape = Shaped::Shape(emails: { work: String, personal: String })
@@ -132,7 +133,7 @@ shape.matched_by?('emails' => { work: 'david@google.com', personal: 'david@gmail
 # => false
 ```
 
-## Shaped::Shapes::Array
+### Shaped::Shapes::Array
 ```rb
 shape = Shaped::Shape([String])
 
@@ -152,7 +153,7 @@ shape.matched_by?([3.6, 10, 27, 81.99]) # all elements are either an Integer or 
 # => true
 ```
 
-## Shaped::Shapes::Class
+### Shaped::Shapes::Class
 
 This shape is straightforward; it tests that the provided object is an instance of the specified
 class (checked via `is_a?(...)`).
@@ -170,7 +171,7 @@ shape.matched_by?('five') # 'five' is not a Numeric
 # => false
 ```
 
-### ActiveModel validations
+#### ActiveModel validations
 
 `shaped` depends on the [`activemodel` gem](https://rubygems.org/gems/activemodel) (provided by the
 Ruby on Rails web framework) and leverages ActiveModel to allow for the specification of additional
@@ -204,7 +205,7 @@ shape.matched_by?('a@b.c') # too short
 # => false
 ```
 
-## Shaped::Shapes::Method
+### Shaped::Shapes::Method
 
 This shape allows specifying a method name that, when called upon a test object, must return a
 truthy value in order for `matched_by?` to be true.
@@ -219,7 +220,7 @@ shape.matched_by?(60)
 # => false
 ```
 
-## Shaped::Shapes::Callable
+### Shaped::Shapes::Callable
 
 This shape is very powerful if you need a very customized shape definition; you can define any
 number of conditions/checks and they can be defined however you like. The only condition is that the
@@ -280,7 +281,7 @@ shape.matched_by?(7) # seven is not even
 # => false
 ```
 
-## Shaped::Shapes::Equality
+### Shaped::Shapes::Equality
 
 `Shaped::Shapes::Equality` is the simplest shape of all; it just checks that an object is equal to
 the provided "shape definition" (checked via `==`). This "shape" probably isn't very useful, in
@@ -314,7 +315,7 @@ shape.matched_by?(verification_code: '321cba', new_role: 'SuperAdmin')
 # => false
 ```
 
-## Shaped::Shapes::Any
+### Shaped::Shapes::Any
 
 This shape is used behind the scenes to build "compound matchers", such as an Array shape that
 allows multiple different classes:
@@ -348,7 +349,7 @@ shape.matched_by?(-11.5) # it's neither greater than 0 nor an Integer
 # => false
 ```
 
-## Shaped::Shapes::All
+### Shaped::Shapes::All
 
 This shape can be used to combine multiple checks, all of which must be true for a test object in
 order for `#matched_by?` to be true:
@@ -365,7 +366,7 @@ shape.matched_by?(33) # 33 is a Numeric but it's not `#even?`
 # => false
 ```
 
-## `#to_s`
+### `#to_s`
 
 Each Shape type implements a `#to_s` instance method that aims to provide a relatively clear
 description of what the shape is checking for.
@@ -390,7 +391,7 @@ Shaped::Shape('allowed string one', 'allowed string two').to_s
 # => "allowed string one" OR "allowed string two"
 ```
 
-# Development
+## Development
 
 After checking out the repo, run `bundle install` to install dependencies. Then, run `bin/rspec` to
 run the tests. You can also run `bin/console` for an interactive prompt that will allow you to
@@ -399,7 +400,7 @@ experiment.
 To install this gem onto your local machine from a development copy of the code, run `bundle exec
 rake install`.
 
-# For maintainers
+## For maintainers
 
 To release a new version, run `bin/release` with an appropriate `--type` option, e.g.:
 
@@ -411,7 +412,7 @@ bin/release --type minor
 
 [release_assistant]: https://github.com/davidrunger/release_assistant/
 
-# License
+## License
 
 The gem is available as open source under the terms of the [MIT
 License](https://opensource.org/licenses/MIT).
