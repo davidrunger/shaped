@@ -20,6 +20,6 @@ class Shaped::Shapes::All < Shaped::Shape
   end
 
   def to_s
-    @shapes.map(&:to_s).join(' AND ')
+    @shapes.join(' AND ')
   end
 end

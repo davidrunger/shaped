@@ -20,6 +20,6 @@ class Shaped::Shapes::Any < Shaped::Shape
   end
 
   def to_s
-    @shapes.map(&:to_s).join(' OR ')
+    @shapes.join(' OR ')
   end
 end
