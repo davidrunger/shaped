@@ -71,8 +71,7 @@ RSpec.describe Shaped::Shapes::Callable do
       let(:callable_shape_description) { lambda(&:even?) }
 
       it 'returns a string mentioning a proc defined at an unknown location' do
-        expect(to_s_method).
-          to include('Proc test defined at unknown location')
+        expect(to_s_method).to include('Proc test defined at unknown location')
       end
     end
 
