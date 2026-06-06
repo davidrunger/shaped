@@ -72,7 +72,7 @@ RSpec.describe Shaped::Shapes::Callable do
 
       it 'returns a string mentioning a proc defined at an unknown location' do
         expect(to_s_method).
-          to match(%r{Proc test defined at unknown location})
+          to include('Proc test defined at unknown location')
       end
     end
 
