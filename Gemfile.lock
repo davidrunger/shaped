@@ -138,7 +138,7 @@ GEM
       prism (>= 0.24.0)
       rubocop (>= 1.72.0)
     securerandom (0.4.1)
-    simplecov (1.0.0)
+    simplecov (1.0.1)
     simplecov-cobertura (4.0.0)
       rexml
       simplecov (~> 1.0)
@@ -222,7 +222,7 @@ CHECKSUMS
   runger_style (5.13.2) sha256=7f01c78726399bed399dc7b9d520c747c021ea4e2b2dfa0dabf622a84d47a576
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   shaped (0.14.1.alpha)
-  simplecov (1.0.0) sha256=bdc50b41fa4a8b3c860da4bf5d61ba4704479c51d08a8f53cbd56ae50778dca8
+  simplecov (1.0.1) sha256=419d93c40484159d20b40e26e9a83cdd4c3afa2f3fd443bb8946c301cd658d75
   simplecov-cobertura (4.0.0) sha256=e4fb3159b1ecea545b44f5452a8611305323e78ad23eae8aed35924d072e01ea
   slop (4.10.1) sha256=844322b5ffcf17ed4815fdb173b04a20dd82b4fd93e3744c88c8fafea696d9c7
   tsort (0.2.0) sha256=9650a793f6859a43b6641671278f79cfead60ac714148aabe4e3f0060480089f
