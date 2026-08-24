@@ -26,7 +26,9 @@ class Shaped::Shapes::Class < Shaped::Shape
   private
 
   def validator_klass(validations)
-    return nil if validations.empty?
+    if validations.empty?
+      return nil
+    end
 
     Class.new do
       include ActiveModel::Validations
@@ -38,7 +40,9 @@ class Shaped::Shapes::Class < Shaped::Shape
   end
 
   def validations_satisfied?(object)
-    return true if @validator_klass.nil?
+    if @validator_klass.nil?
+      return true
+    end
 
     validator_instance = @validator_klass.new
     validator_instance.value = object

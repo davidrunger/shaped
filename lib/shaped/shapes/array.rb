@@ -10,7 +10,9 @@ class Shaped::Shapes::Array < Shaped::Shape
   end
 
   def matched_by?(array)
-    return false if !array.is_a?(Array)
+    if !array.is_a?(Array)
+      return false
+    end
 
     array.all? { |element| @element_test.matched_by?(element) }
   end
