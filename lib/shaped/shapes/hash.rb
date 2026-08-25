@@ -10,12 +10,12 @@ class Shaped::Shapes::Hash < Shaped::Shape
   end
 
   def matched_by?(hash)
-    if !hash.is_a?(Hash)
-      return false
-    end
-
-    @hash_description.all? do |key, expected_value_shape|
-      expected_value_shape.matched_by?(hash[key])
+    if hash.is_a?(Hash)
+      @hash_description.all? do |key, expected_value_shape|
+        expected_value_shape.matched_by?(hash[key])
+      end
+    else
+      false
     end
   end
 
