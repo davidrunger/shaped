@@ -3,9 +3,8 @@
 RSpec.describe Shaped::Shapes::Callable do
   subject(:callable_shape) { Shaped::Shapes::Callable.new(callable_shape_description) }
 
-  # rubocop:disable Style/SymbolProc
+  # rubocop:disable-next Style/SymbolProc
   let(:callable_shape_description) { ->(object) { object.even? } }
-  # rubocop:enable Style/SymbolProc
   let(:test_object) { 32 }
 
   describe '#initialize' do

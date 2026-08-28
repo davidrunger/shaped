@@ -50,9 +50,8 @@ RSpec.describe(Shaped) do
       end
 
       context 'when called with an object that responds to #call (e.g. a Proc)' do
-        # rubocop:disable Style/SymbolProc
+        # rubocop:disable-next Style/SymbolProc
         let(:shape_description) { ->(object) { object.even? } }
-        # rubocop:enable Style/SymbolProc
 
         it 'returns an instance of Shaped::Shapes::Callable' do
           expect(shape).to be_a(Shaped::Shapes::Callable)
