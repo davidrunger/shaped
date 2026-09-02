@@ -6,9 +6,7 @@ if ENV.fetch('CI', nil) == 'true'
   SimpleCov.formatter = SimpleCov::Formatter::CoberturaFormatter
   SimpleCov.coverage_dir('tmp/simple_cov') # must match codecov-action directory option
 end
-SimpleCov.start do
-  add_filter(%r{\A/spec/})
-end
+SimpleCov.start
 
 require 'bundler/setup'
 Bundler.require(:default, :test)
